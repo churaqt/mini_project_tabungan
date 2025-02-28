@@ -8,7 +8,7 @@ class HomeController {
     }
 
     public function index() {
-        echo 'hello';
+        echo 'hello world ';
         require_once 'app/views/home.php';
     }
 
