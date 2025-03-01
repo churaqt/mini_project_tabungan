@@ -21,4 +21,8 @@ class AuthMiddleware {
             exit();
         }
     }
+    public static function getUserId(){
+        self::isAuthenticated();
+        return $_SESSION['user_id'];
+    }
 }
