@@ -11,7 +11,8 @@ class AuthController {
     }
 
     public function login() {
-       
+       require_once 'app/helpers/AuthMiddleware.php';#biar redirect ke home apabila sdh login
+       AuthMiddleware::isGuest();
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -25,7 +26,8 @@ class AuthController {
     }
 
     public function register() {
-      
+        require_once 'app/helpers/AuthMiddleware.php';
+        AuthMiddleware::isGuest(); 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = $_POST['name'];
             $email = $_POST['email'];
