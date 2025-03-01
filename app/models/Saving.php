@@ -11,11 +11,14 @@ class Saving
 
     public function getByUserId($userId)
     {
-        $query = "SELECT * FROM " . $this->table . " WHERE user_id = :user_id";
+        // Modify the query to include the user's name from the 'users' table
+        $query = "SELECT d.*, u.name FROM " . $this->table . " d
+              JOIN users u ON d.user_id = u.id
+              WHERE d.user_id = :user_id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':user_id', $userId);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); // This will now include the 'name' field from users
     }
 
     public function create($user_id, $amount, $message)
@@ -33,7 +36,16 @@ class Saving
         return false;
     }
 
+    public function getAll()
+    {
+        $query = "SELECT d.*, u.name FROM " . $this->table . " d
+                  JOIN users u ON d.user_id = u.id
+                  ORDER BY d.created_at DESC";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
 }
-
-
 ?>
