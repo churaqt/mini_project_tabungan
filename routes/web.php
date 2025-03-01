@@ -23,6 +23,12 @@ class Router
                 $controller->register();
                 break;
 
+            case 'save':
+                require_once 'app/controllers/SavingsController.php';
+                $controller = new SavingController();
+                $controller->index();
+                break;
+
             default:
                 header("HTTP/1.0 404 Not Found");
                 echo "Page not found";

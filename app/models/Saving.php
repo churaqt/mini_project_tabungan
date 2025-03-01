@@ -9,7 +9,8 @@ class Saving
         $this->db = $db;
     }
 
-    public function getByUserId($userId){
+    public function getByUserId($userId)
+    {
         $query = "SELECT * FROM " . $this->table . " WHERE user_id = :user_id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':user_id', $userId);
@@ -17,5 +18,22 @@ class Saving
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function create($user_id, $amount, $message)
+    {
+        $query = "INSERT INTO " . $this->table . " (user_id, amount, message) VALUES (:user_id, :amount, :message)";
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':amount', $amount);
+        $stmt->bindParam(':message', $message);
+
+        if ($stmt->execute()) {
+            return true;
+        }
+        return false;
+    }
+
 }
+
+
 ?>
