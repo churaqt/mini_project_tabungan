@@ -11,6 +11,7 @@
     </nav>
 
     <main>
+    <img src="Group 16.png" alt="Login" class="loginimg">
         <h2>Login</h2>
         <form method="POST" action="login">
             <div>
