@@ -4,7 +4,8 @@
     <title>Login - Mini Tabungan</title>
     <link rel="stylesheet" href="public/css/style.css">
 </head>
-<body>
+<body class="auth-bg">
+
     <nav>
         <h1>Mini Tabungan</h1>
         <a href="home">Home</a>

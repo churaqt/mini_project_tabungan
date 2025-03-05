@@ -7,6 +7,9 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  background-image: url('../bg.jpeg'); /* Jika CSS ada di /public/css/ */
+  background-size: 100%;
+  background-position: fixed;
 }
 
 nav {
@@ -53,10 +56,16 @@ button {
   color: white;
   border: none;
   cursor: pointer;
+  transition:all 0.3s ease-in-out;
 }
 
 button:hover {
   background: #aa5ce6;
+  transform: scale(1.1);
+}
+
+button:active {
+  transform: scale(0.95); /* Sedikit mengecil saat diklik */
 }
 
 .saving-card {
@@ -95,7 +104,26 @@ button:hover {
   background: #Deacf5;
 }
 
-.loginimg{
+.loginimg,.registerimg{
   width: 166gpx;
   margin-left:30vh;
 }
+
+a{
+  text-decoration: none;
+  color:#894bb8;
+}
+a:hover{
+  text-decoration: none;
+  color:#9070a0;
+}
+
+.auth-bg main{
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 70px;
+}
+
+

@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Register - Mini Tabungan</title>
     <link rel="stylesheet" href="public/css/style.css">
 </head>
-<body>
+
+<body class="auth-bg">
+
     <nav>
         <h1>Mini Tabungan</h1>
         <a href="home">Home</a>
     </nav>
 
+
     <main>
+        <img src="group 16.1.png" alt="Login" class="registerimg">
         <h2>Register</h2>
         <form method="POST" action="register">
             <div>
@@ -30,4 +35,5 @@
         <p>Already have an account? <a href="login">Login</a></p>
     </main>
 </body>
+
 </html>
